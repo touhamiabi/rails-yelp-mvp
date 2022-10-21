@@ -5,6 +5,17 @@
 <p><%= @restaurant.phone_number %></p>
 <p><%= @restaurant.category %></p>
 
-<%= link_to "back home", restaurants_path %>
+<br>
+<p><strong>Restaurant Reviews</strong></p>
+<ul>
+<% @restaurant.reviews.each do |review| %>
+<li><strong>Review: </strong><%=review.content %> </li>
+<li> <strong>Rating: </strong><%=review.rating %> </li>
 
-<%= link_to "add review", new_restaurant_review_path(@restaurant) %>
+<% end %>
+</ul>
+<br>
+
+<%= link_to "back home", restaurants_path, class: "btn btn-primary" %>
+
+<%= link_to "add review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
